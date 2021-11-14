@@ -1,0 +1,80 @@
+.firstCaption{
+    margin-top: -350px;
+    margin-left: -500px;
+}
+.firstCaption h2{
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+.firstCaption h1{
+    font-size: 70px;
+    font-weight: bold;
+    color:#F1FF72 ;
+    text-shadow: 0 0 5px #000;
+}
+
+.secondCaption{
+    margin-top: -350px;
+    margin-right: -500px;
+}
+.secondCaption h2{
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+
+.secondCaption h1{
+    font-size: 70px;
+    font-weight: bold;
+    color:#F1FF72 ;
+    text-shadow: 0 0 5px #000;
+}
+.thirdCaption{
+    margin-top: -400px;
+    margin-right: -750px;
+}
+.thirdCaption h2{
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+.thirdCaption h1{
+    font-size: 70px;
+    font-weight: bold;
+    color:#F1FF72 ;
+    text-shadow: 0 0 5px #000;
+}
+.btn-shop-now{
+    background-color: white; /* Green */
+    border: none;
+    color: 000000;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    
+}
+.btn-shop-now:hover{
+    background-color: #F1FF72;
+    color: black;
+}
+
+@media screen and (max-width: 480px) {
+
+    .firstCaption,.secondCaption,.thirdCaption{
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+}
