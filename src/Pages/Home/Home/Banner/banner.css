@@ -51,7 +51,7 @@
 .btn-shop-now{
     background-color: white; /* Green */
     border: none;
-    color: 000000;
+    color: black ;
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
@@ -76,5 +76,5 @@
         margin-left: 0px;
         margin-right: 0px;
     }
-
+   
 }
