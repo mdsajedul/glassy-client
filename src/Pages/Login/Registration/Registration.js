@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import useFirebase from '../../../hooks/useFirebase';
+
+
 
 const Registration = () => {
+    const [loginInfo, setLoginInfo] = useState({});
+    const history = useHistory();
     const { register, handleSubmit,reset } = useForm();
+    const {user,userRegistration} = useAuth()
+   
+
+    const onSubmit = (data) => {
+        userRegistration(data.email,data.password,data.name,history);
+       
+    }
+
     return (
         <div className="d-flex justify-content-center p-5">
             <div className="w-75">
-            <i class="fas fa-user"></i>
+            <i className="fas fa-user"></i>
                 <h3 style={{color:'#1565C0'}}>Sign Up</h3>
-                <form onSubmit="">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <input type="text" {...register("name", { required: true })}  placeholder= " Your Name" />
                     </div>

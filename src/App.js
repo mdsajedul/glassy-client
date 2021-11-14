@@ -5,11 +5,13 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import Registration from './Pages/Login/Registration/Registration';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <Router>
         <Navigation></Navigation>
           <Switch>
@@ -27,6 +29,7 @@ function App() {
               </Route>
           </Switch>
       </Router>
+      </AuthProvider>
     </div>
   );
 }

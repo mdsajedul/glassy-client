@@ -14,8 +14,9 @@ const useFirebase = () => {
 
     // User registration with email and password
     const userRegistration = (email, password,name,history) => {
+       
         setIsLoading(true);
-        createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(auth,email, password)
         .then((userCredential) => {
             updateProfile(auth.currentUser, {
                 displayName: name
@@ -56,7 +57,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, []);
+    }, [auth]);
 
     const logout = () => {
         setIsLoading(true);
@@ -68,7 +69,7 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    return{
+    return {
         userRegistration,
         userLogin,
         logout,
@@ -78,4 +79,5 @@ const useFirebase = () => {
 
     }
 }
+
 export default useFirebase;
