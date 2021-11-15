@@ -31,13 +31,13 @@ function App() {
               <Route exact path="/collections">
                   <SunglassContainer></SunglassContainer>
               </Route>
-              <Route exact path="/placeorder/:glassId">
+              <PrivateRoute exact path="/placeorder/:glassId">
                   <PlaceOrder></PlaceOrder>
-              </Route>
+              </PrivateRoute>
               <Route exact path="/registration">
                   <Registration></Registration>
               </Route>
-              <PrivateRoute exact path="/dashboard">
+              <PrivateRoute path="/dashboard">
                   <Dashboard></Dashboard>
               </PrivateRoute>
           </Switch>

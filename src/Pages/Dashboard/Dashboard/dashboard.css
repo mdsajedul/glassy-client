@@ -1,0 +1,21 @@
+.dashboard-btn button{
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    color: #555;
+    cursor: pointer;
+    display:inline-block;
+    font-size: 18px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
