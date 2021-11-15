@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './sunglass.css'
 
 const Sunglass = ({glass}) => {
@@ -18,7 +19,10 @@ const Sunglass = ({glass}) => {
 
                     </div>
                     <div class="glass-card-back">
-                        <button className="btn-buy-now">Buy Now</button>
+                        <Link to={`/placeorder/${_id}`}>
+                            <button className="btn-buy-now">Buy Now</button>
+                        </Link>
+                        
                     </div>
                 </div>
                 </div>

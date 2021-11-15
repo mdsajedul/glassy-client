@@ -9,6 +9,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import SunglassContainer from './Pages/SunglassContainer/SunglassContainer';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
               </Route>
               <Route exact path="/collections">
                   <SunglassContainer></SunglassContainer>
+              </Route>
+              <Route exact path="/placeorder/:glassId">
+                  <PlaceOrder></PlaceOrder>
               </Route>
               <Route exact path="/registration">
                   <Registration></Registration>

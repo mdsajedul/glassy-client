@@ -6,8 +6,9 @@ const SunglassContainer = () => {
     const {glasses} = useGlasses()
     return (
         <div>
-            <div>
-                <h1>Our Collections</h1>
+            <div className="m-5">
+                <h1><b>Our Collections</b></h1>
+                <h5><blockquote><i>"Always have a good pair of sunglasses on hand. You never know when you might need them."</i></blockquote></h5>
             </div>
             <div className="row gx-0">
                 {
