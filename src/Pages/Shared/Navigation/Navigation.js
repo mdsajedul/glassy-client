@@ -23,7 +23,7 @@ const Navigation = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                         <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
-                        <Nav.Link as={HashLink} to="/home#explore">Explore</Nav.Link>
+                        <Nav.Link as={HashLink} to="/collections">Collections</Nav.Link>
                         </Nav>
                         <Nav>
                             {user.email && 

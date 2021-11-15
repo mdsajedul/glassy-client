@@ -20,7 +20,7 @@ const Home = () => {
 
            <div className="row gx-0">
                 <div className="col-lg-9">
-                <div className="row  p-3 ">
+                <div className="row  gx-0">
                     {
                     glasses.slice(0,6).map(glass=><Sunglass 
                                         key={glass._id}
@@ -30,10 +30,11 @@ const Home = () => {
                     </div>
                     
                 </div>
-                <div className="col-lg-3">
-                    <h3>Latest Collection</h3>
+                <div className="col-lg-3 mt-5 right-content">
+                    <h3 className="pt-2">Latest Collection</h3>
+                    <h5>Winter Collection</h5>
                     
-                    <img src={men} alt="" className="container-fluid" />
+                    <img src={men} alt=""  className=" container-fluid mt-3 "  />
                 </div>
            </div>
 

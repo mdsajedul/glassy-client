@@ -8,6 +8,7 @@ import Registration from './Pages/Login/Registration/Registration';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import SunglassContainer from './Pages/SunglassContainer/SunglassContainer';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
               </Route>
               <Route exact path="/login">
                   <Login></Login>
+              </Route>
+              <Route exact path="/collections">
+                  <SunglassContainer></SunglassContainer>
               </Route>
               <Route exact path="/registration">
                   <Registration></Registration>

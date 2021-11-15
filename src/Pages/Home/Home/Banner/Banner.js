@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import bannerImage1 from '../../../../images/banner/1.jpg'
 import bannerImage2 from '../../../../images/banner/2.jpg'
 import bannerImage3 from '../../../../images/banner/3.jpg'
@@ -19,7 +20,7 @@ const Banner = () => {
                         <h2>FLAT</h2>
                         <h1>20% OFF</h1>
                         <h3>ON SUNGLASSES</h3>
-                        <button className="btn-shop-now">Shop Now</button>
+                        <Link to="/collections"> <button className="btn-shop-now">Shop Now</button></Link>
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -35,7 +36,7 @@ const Banner = () => {
                         <h2>FLAT</h2>
                         <h1>20% OFF</h1>
                         <h3>ON SUNGLASSES</h3>
-                        <button className="btn-shop-now">Shop Now</button>
+                        <Link to="/collections"> <button className="btn-shop-now">Shop Now</button></Link>
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -51,7 +52,8 @@ const Banner = () => {
                         <h2>FLAT</h2>
                         <h1>20% OFF</h1>
                         <h3>ON SUNGLASSES</h3>
-                        <button className="btn-shop-now">Shop Now</button>
+                        <Link to="/collections"> <button className="btn-shop-now">Shop Now</button></Link>
+                        
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>

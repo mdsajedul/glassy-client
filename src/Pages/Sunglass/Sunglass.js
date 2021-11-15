@@ -4,7 +4,7 @@ import './sunglass.css'
 const Sunglass = ({glass}) => {
     const {name,price,image,_id,description,availability} = glass;
     return (
-        <div className="col-lg-4  gx-5 gy-5 " >
+        <div className="col-lg-4 gy-5 d-flex justify-content-center" >
 
                 <div class="glass-card">
                 <div class="glass-card-inner">
