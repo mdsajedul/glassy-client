@@ -21,9 +21,18 @@ const PlaceOrder = () => {
 
 
     const onSubmit = data => {
+        data.glassId = glass?._id;
         data.glassName = glass?.name;
         data.OrderStatus = 'Pending'; 
         console.log(data)
+        axios.post(`http://localhost:5000/orders`, data)
+        .then(res => {
+            console.log(res)
+            if(res.data.insertedId){
+                alert('Successfully added!')
+                reset();
+            }
+        })
     }
     return (
         <div>
