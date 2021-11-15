@@ -3,27 +3,31 @@ import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 
 
+
 initializeFirebase();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [errorMassage, setErrorMassage] = useState('');
+    const [admin,setAdmin] = useState(false);
 
     const auth = getAuth();
 
     // User registration with email and password
-    const userRegistration = (email, password,name,history) => {
+    const userRegistration = (email, password,name,history,location) => {
        
         setIsLoading(true);
         createUserWithEmailAndPassword(auth,email, password)
         .then((userCredential) => {
+            saveUser(email,name);
             updateProfile(auth.currentUser, {
                 displayName: name
             }).then(() => {
             }).catch((error) => {
             });
-            history.replace('/');
+            window.location.assign('/');
+            
         })
         .catch((error) => {
             ;
@@ -59,6 +63,25 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth]);
 
+
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then()
+    }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
@@ -75,7 +98,8 @@ const useFirebase = () => {
         logout,
         user,
         isLoading,
-        errorMassage
+        errorMassage,
+        admin
 
     }
 }

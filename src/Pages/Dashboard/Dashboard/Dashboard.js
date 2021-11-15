@@ -15,30 +15,46 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import DashboardHome from '../DashboardHome/DashboardHome';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const {user,logout} = useAuth();
+    const {user,logout,admin} = useAuth();
     console.log(path)
     return (
         <div>
             <div className="row gx-0">
                 <div className="col-lg-2 border-right">
                     <div>
-                        <h4>User Dashboard</h4>
+                        {
+                            admin? <h5 className="mt-3">Admin Dashboard</h5> : <h5 className="mt-3">User Dashboard</h5>
+                        }
+                        
                         <h5>{user?.displayName}</h5>
+                        
+                      
                         <hr />
                     </div>
                     <div>
                         <div className="dashboard-btn">
-                            <li><Link to={`${url}/myorders`}><button>My Orders</button> </Link></li>
-                            <li><Link to={`${url}/payment`}><button>Payment</button></Link></li>
-                            <li><Link to={`${url}/review`}><button>Review</button> </Link></li>
-                            <li><Link to={`${url}/manageallorders`}><button>Manage All Orders</button> </Link></li>
-                            <li><Link to={`${url}/addproduct`}><button> Add New Product</button></Link></li>
-                            <li><Link to={`${url}/manageallproducts`}><button>Manage All Product</button> </Link></li>
-                            <li><Link to={`${url}/makeAdmin`}><button> Make Admin</button></Link></li>
-                            <li><button onclick={logout} >Logout</button> </li>
+                            {
+                                admin? <div>
+                                <li><Link to={`${url}/manageallorders`}><button>Manage All Orders</button> </Link></li>
+                                <li><Link to={`${url}/addproduct`}><button> Add New Product</button></Link></li>
+                                <li><Link to={`${url}/manageallproducts`}><button>Manage All Product</button> </Link></li>
+                                <li><Link to={`${url}/makeAdmin`}><button> Make Admin</button></Link></li>
+                            </div> :
+                            <div>
+                                <li><Link to={`${url}/myorders`}><button>My Orders</button> </Link></li>
+                                <li><Link to={`${url}/payment`}><button>Payment</button></Link></li>
+                                <li><Link to={`${url}/review`}><button>Review</button> </Link></li>
+                            </div>
+                            }
+                            <li><button onClick={logout} >Logout</button> </li>
+                            
+                           
+                            
+                            
                             
                         </div>
                     </div>
@@ -58,18 +74,18 @@ const Dashboard = () => {
                                 <Review></Review>
                             </Route>
 
-                            <Route path={`${path}/manageallorders`}>
+                            <AdminRoute path={`${path}/manageallorders`}>
                                 <ManageAllOrders></ManageAllOrders>
-                            </Route>
-                            <Route path={`${path}/addproduct`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/addproduct`}>
                                 <AddProduct></AddProduct>
-                            </Route>
-                            <Route path={`${path}/manageallproducts`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/manageallproducts`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
-                            <Route path={`${path}/makeAdmin`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
+                            </AdminRoute>
                     </Switch>
                 </div>
             </div>

@@ -7,10 +7,15 @@ import './login.css';
 
 const Login = () => {
     const { register, handleSubmit,reset } = useForm();
-    const {userLogin} = useAuth()
+    const {userLogin,user} = useAuth()
 
     const location = useLocation();
     const history = useHistory();
+    
+
+    if(user?.email){
+        history.replace(location.state?.from || '/');
+    }
 
     const onSubmit =(data)=>{
         console.log(data)

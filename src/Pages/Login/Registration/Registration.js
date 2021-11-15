@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link,useHistory } from 'react-router-dom';
+import { Link,useHistory,useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useFirebase from '../../../hooks/useFirebase';
 
@@ -8,13 +8,14 @@ import useFirebase from '../../../hooks/useFirebase';
 
 const Registration = () => {
     const [loginInfo, setLoginInfo] = useState({});
-    const history = useHistory();
+    const {history} = useHistory();
+    const {location} = useLocation();
     const { register, handleSubmit,reset } = useForm();
     const {user,userRegistration} = useAuth()
    
 
     const onSubmit = (data) => {
-        userRegistration(data.email,data.password,data.name,history);
+        userRegistration(data.email,data.password,data.name,history,location);
        
     }
 
