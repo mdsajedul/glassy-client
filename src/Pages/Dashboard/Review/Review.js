@@ -36,6 +36,9 @@ const Review = () => {
                                 <input type="text" {...register("name", { required: true })}  placeholder="Your name" value={user?.displayName} />
                             </div>
                             <div className="design">
+                                <input type="text" {...register("email", { required: true })}  placeholder="Your Email" value={user?.email} />
+                            </div>
+                            <div className="design">
                                 <textarea type="text" {...register("reviewText",{required:true})}  placeholder="Leave a review"/>
                             </div>
                             <div>

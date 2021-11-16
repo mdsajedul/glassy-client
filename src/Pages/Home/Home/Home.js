@@ -5,6 +5,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import Sunglass from '../../Sunglass/Sunglass';
 import Banner from './Banner/Banner';
 import men from '../../../images/banner/men.jpg'
+import ShowReview from '../ShowReview/ShowReview';
 
 const Home = () => {
     
@@ -38,7 +39,7 @@ const Home = () => {
                 </div>
            </div>
 
-            
+            <ShowReview></ShowReview>
         </div>
     );
 };
