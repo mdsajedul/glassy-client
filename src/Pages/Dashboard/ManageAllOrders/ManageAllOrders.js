@@ -69,7 +69,10 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-        <table class="table table-borderless mt-5 table-striped table-responsive">
+            <div>
+                <h3 className="mt-3">Manage All Orders</h3>
+            </div>
+        <table class="table table-borderless mt-3 table-striped table-responsive">
         
          <thead>
              <tr>
