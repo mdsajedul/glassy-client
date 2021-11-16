@@ -58,7 +58,7 @@ const MyOrder = () => {
                     myOrders.map(order=><tr>
                        
                             <td>{order?.glassName}</td>
-                            <td style={order?.OrderStatus==='Pending'? {color:'#F48225',fontWeight:'bold'}:{color:'#335C39',fontWeight:'bold'}}>{order?.OrderStatus}</td>
+                            <td style={order?.OrderStatus==='Pending'? {color:'#F48225',fontWeight:'bold'}:{color:'green',fontWeight:'bold'}}>{order?.OrderStatus}</td>
                             <td><button className="order-delete" onClick={()=>deleteHandler(order._id,order?.glassName)}><i class=" fas fa-trash-alt"></i></button></td> 
                         </tr>)
                 }

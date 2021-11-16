@@ -23,7 +23,8 @@ const PlaceOrder = () => {
     const onSubmit = data => {
         data.glassId = glass?._id;
         data.glassName = glass?.name;
-        data.OrderStatus = 'Pending'; 
+        data.OrderStatus = 'Pending';
+        data.item = 'sunglass';
         console.log(data)
         axios.post(`http://localhost:5000/orders`, data)
         .then(res => {
