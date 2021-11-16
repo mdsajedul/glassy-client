@@ -1,9 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
+    const { register, handleSubmit,reset } = useForm();
+    const [users,setUsers] = useState([]);
+    const [role ,setRole] = useState({role:'admin'});
+    const [rerender, setRerender] = useState(false);
+    const {user} =useAuth();
+    const onSubmit = data => {
+        console.log(data);
+    }
+    useEffect(()=>{
+        fetch('http://localhost:5000/users')
+        .then(res => res.json())
+        .then(data => {
+           
+            setUsers(data);
+
+        })
+    },[rerender])
+
+    const handleMakeAdmin=(id,name)=>{
+        
+        setRole({role:'admin'});
+        const url = `http://localhost:5000/users/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(role)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert(`${name}'s role Admin has been set'`);
+                    setRerender(!rerender);
+                }
+            })
+    }
+    
+    
     return (
         <div>
-            <h1>Make Admin</h1>
+            <div>
+                <h3 className="mt-3">Make an Admin</h3>
+                <div>
+                <table class="table table-borderless mt-2 table-striped table-responsive">
+           
+                    <thead>
+                        <tr>
+                        
+                        <th scope="col">Users</th>
+                        <th scope="col">Total User:{user.length} </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {
+                            users.map(userAgain => {
+                                return(
+                                    <tr>
+                                        <td>{userAgain.email}</td>
+                                        <td><button onClick={()=>handleMakeAdmin(userAgain?._id,userAgain?.displayName)}><i class="fas fa-user-cog"></i> Make Admin</button></td>
+                                    </tr>
+                                )
+                            })
+                    }
+                    </tbody>
+                </table>
+                </div>
+            </div>
         </div>
     );
 };

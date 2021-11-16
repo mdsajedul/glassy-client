@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMassage, setErrorMassage] = useState('');
     const [admin,setAdmin] = useState(false);
-
+    const [userAgain,setUserAgain] = useState({});
     const auth = getAuth();
 
     // User registration with email and password
@@ -66,6 +66,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
+        user.role = 'user';
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -76,10 +77,14 @@ const useFirebase = () => {
         .then()
     }
 
+
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user?.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+            .then(data => {
+                setUserAgain(data.user);
+                setAdmin(data.admin)
+            })
     }, [user.email])
 
     const logout = () => {
@@ -99,7 +104,8 @@ const useFirebase = () => {
         user,
         isLoading,
         errorMassage,
-        admin
+        admin,
+        userAgain
 
     }
 }
