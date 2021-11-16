@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
 
         useEffect(()=>{
             setIsLoading(true);
-            fetch(`http://localhost:5000/orders`)
+            fetch(`https://pure-anchorage-09038.herokuapp.com/orders`)
             .then(res=>res.json())
             .then(data=>{
                 console.log(data);
@@ -27,7 +27,7 @@ const ManageAllOrders = () => {
         const deleteHandler=(id,name)=>{
             const alertDelete = window.confirm(`Are you sure you want to delete ${name} ?`);
             if(alertDelete){
-                fetch(`http://localhost:5000/orders/${id}`,{
+                fetch(`https://pure-anchorage-09038.herokuapp.com/orders/${id}`,{
                     method:'DELETE'
                 })
                 .then(res=>res.json())
@@ -47,7 +47,7 @@ const ManageAllOrders = () => {
         const shippedHandler=(id,glassName)=>{
         
             setOrder({status:'Shipped'});
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://pure-anchorage-09038.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

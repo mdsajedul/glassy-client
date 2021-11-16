@@ -14,7 +14,7 @@ const Review = () => {
     const onSubmit = data => {
         const review = {name:userAgain?.displayName,email:user.email,rating:ratingValue,review:data.reviewText}
         console.log(review)
-        axios.post('http://localhost:5000/reviews',review)
+        axios.post('https://pure-anchorage-09038.herokuapp.com/reviews',review)
         .then(res=>{
             if(res.data.insertedId){
                 alert('Successfully added!')

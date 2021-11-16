@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const { register, handleSubmit,reset } = useForm();
     const {user} = useAuth()
     useEffect(()=>{
-        fetch(`http://localhost:5000/glasses/${glassId}`)
+        fetch(`https://pure-anchorage-09038.herokuapp.com/glasses/${glassId}`)
         .then(res => res.json())
         .then(data => setGlass(data))
     },[])
@@ -26,7 +26,7 @@ const PlaceOrder = () => {
         data.OrderStatus = 'Pending';
         data.item = 'sunglass';
         console.log(data)
-        axios.post(`http://localhost:5000/orders`, data)
+        axios.post(`https://pure-anchorage-09038.herokuapp.com/orders`, data)
         .then(res => {
             console.log(res)
             if(res.data.insertedId){

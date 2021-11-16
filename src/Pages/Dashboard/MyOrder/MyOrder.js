@@ -9,7 +9,7 @@ const MyOrder = () => {
     const [count,setCount] = useState(0);
     useEffect(()=>{
         setIsLoading(true);
-        fetch(`http://localhost:5000/orders/${user?.email}`)
+        fetch(`https://pure-anchorage-09038.herokuapp.com/orders/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
@@ -23,7 +23,7 @@ const MyOrder = () => {
     const deleteHandler=(id,name)=>{
         const alertDelete = window.confirm(`Are you sure you want to delete ${name} ?`);
         if(alertDelete){
-            fetch(`http://localhost:5000/orders/${id}`,{
+            fetch(`https://pure-anchorage-09038.herokuapp.com/orders/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

@@ -9,7 +9,7 @@ const ManageProducts = () => {
 
     useEffect(()=>{
         setIsLoading(true);
-        fetch('http://localhost:5000/glasses')
+        fetch('https://pure-anchorage-09038.herokuapp.com/glasses')
         .then(res => res.json())
         .then(data => {
             setManageAllProducts(data);
@@ -21,7 +21,7 @@ const ManageProducts = () => {
     const deleteHandler=(id,name)=>{
         const alertDelete = window.confirm(`Are you sure you want to delete ${name} ?`);
             if(alertDelete){
-                fetch(`http://localhost:5000/glasses/${id}`,{
+                fetch(`https://pure-anchorage-09038.herokuapp.com/glasses/${id}`,{
                     method:'DELETE'
                 })
                 .then(res=>res.json())

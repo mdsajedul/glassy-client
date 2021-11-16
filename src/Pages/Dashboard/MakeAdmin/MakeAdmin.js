@@ -13,7 +13,7 @@ const MakeAdmin = () => {
         console.log(data);
     }
     useEffect(()=>{
-        fetch('http://localhost:5000/users')
+        fetch('https://pure-anchorage-09038.herokuapp.com/users')
         .then(res => res.json())
         .then(data => {
            
@@ -25,7 +25,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin=(id,name)=>{
         
         setRole({role:'admin'});
-        const url = `http://localhost:5000/users/${id}`;
+        const url = `https://pure-anchorage-09038.herokuapp.com/users/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -4,7 +4,7 @@ const useGlasses=()=>{
     const [glasses,setGlasses] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/glasses')
+        fetch('https://pure-anchorage-09038.herokuapp.com/glasses')
         .then(res=>res.json())
         .then(data=>setGlasses(data))
     },[])
