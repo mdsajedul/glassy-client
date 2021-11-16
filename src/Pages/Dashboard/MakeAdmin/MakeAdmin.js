@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
+import './makeAdmin.css';
 
 const MakeAdmin = () => {
     const { register, handleSubmit,reset } = useForm();
     const [users,setUsers] = useState([]);
     const [role ,setRole] = useState({role:'admin'});
     const [rerender, setRerender] = useState(false);
-    const {user} =useAuth();
+    const {user,admin} =useAuth();
     const onSubmit = data => {
         console.log(data);
     }
@@ -53,7 +54,8 @@ const MakeAdmin = () => {
                         <tr>
                         
                         <th scope="col">Users</th>
-                        <th scope="col">Total User:{user.length} </th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Total User:{users?.length} </th>
                         </tr>
                     </thead>
                     
@@ -63,7 +65,14 @@ const MakeAdmin = () => {
                                 return(
                                     <tr>
                                         <td>{userAgain.email}</td>
-                                        <td><button onClick={()=>handleMakeAdmin(userAgain?._id,userAgain?.displayName)}><i class="fas fa-user-cog"></i> Make Admin</button></td>
+                                        <td>{userAgain.role}</td>
+                                        <td>
+                                            {
+                                                userAgain.role === 'user' ? <button className="make-admin" onClick={()=>handleMakeAdmin(userAgain?._id,userAgain?.displayName)}><i class="fas fa-user-cog"></i> Make Admin</button> :
+                                                <p>Already Admin</p>
+                                                
+                                            }
+                                            </td>
                                     </tr>
                                 )
                             })
