@@ -12,7 +12,7 @@ const Review = () => {
     const [ratingValue, setRatingValue] = useState(2.5);
 
     const onSubmit = data => {
-        const review = {name:userAgain?.displayName,email:user.email,rating:ratingValue,review:data.reviewText}
+        const review = {name:user?.displayName,email:user.email,rating:ratingValue,review:data.reviewText}
         console.log(review)
         axios.post('https://pure-anchorage-09038.herokuapp.com/reviews',review)
         .then(res=>{
@@ -27,13 +27,13 @@ const Review = () => {
     return (
         <div>
             <div className="mt-5">
-                <h1>Hey, <span>{userAgain?.displayName}</span> </h1>
+                <h1>Hey, <span>{user?.displayName}</span> </h1>
                  <h4>   Please leave a review about our service, which will be useful in improving the quality of our service</h4>
 
                  <div className="p-5">
                     <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="design">
-                                <input type="text" {...register("name", { required: true })}  placeholder="Your name" value={userAgain?.displayName} />
+                                <input type="text" {...register("name", { required: true })}  placeholder="Your name" value={user?.displayName} />
                             </div>
                             <div className="design">
                                 <input type="text" {...register("email", { required: true })}  placeholder="Your Email" value={user?.email} />

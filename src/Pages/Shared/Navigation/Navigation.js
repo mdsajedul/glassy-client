@@ -8,7 +8,7 @@ import logo from '../../../images/logo/logo.png'
 
 const Navigation = () => {
     const {user,logout,userAgain} = useAuth();
-    
+    console.log(user)
     return (
         <>
             <Navbar sticky="top" style={{backgroundColor:'#F2F2F2',boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} className="nav-custom" collapseOnSelect expand="lg"  variant="light">
@@ -31,7 +31,7 @@ const Navigation = () => {
                             <div style={{display:'inline-flex'}}>
                                 <Nav.Link  as={HashLink} to="/dashboard">Dashboard</Nav.Link>
                                 <Navbar.Text style={{paddingRight:'5px',paddingLeft:'5px'}} className="disply-name">
-                                    Hello,<span className="user-name">{userAgain?.displayName}</span>
+                                    Hello,<span className="user-name">{user?.displayName}</span>
                                 </Navbar.Text>
                             </div>
                              
