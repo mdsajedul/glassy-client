@@ -10,6 +10,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import SunglassContainer from './Pages/SunglassContainer/SunglassContainer';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import Footer from './Pages/Shared/Footer/Footer';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
                   <Dashboard></Dashboard>
               </PrivateRoute>
           </Switch>
+          <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>

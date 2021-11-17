@@ -13,7 +13,7 @@ const ShowReview = () => {
     },[])
 
     return (
-        <div>
+        <div className="my-5">
             <div className='mt-5'>
                 <h4 className="mt-3">We believe in <blockquote>"Good customer service costs less than bad customer service." </blockquote> - Sally Gronow </h4>
                 <h1 className="mt-3">What Our Customer Say <br /> About Us</h1>
