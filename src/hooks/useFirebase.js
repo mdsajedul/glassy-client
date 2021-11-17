@@ -30,8 +30,8 @@ const useFirebase = () => {
             
         })
         .catch((error) => {
-            ;
-            console.log(error);
+            
+            
         })
         .finally(()=>{  setIsLoading(false); });
     }
@@ -63,6 +63,7 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth]);
 
+    //save user information in db
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
@@ -76,7 +77,7 @@ const useFirebase = () => {
         })
         .then()
     }
-
+    //cheching if user is admin or not and geting user information
 
     useEffect(() => {
         fetch(`https://pure-anchorage-09038.herokuapp.com/users/${user?.email}`)
