@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import useGlasses from '../../../hooks/useGlasses';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Sunglass from '../../Sunglass/Sunglass';
-import Banner from './Banner/Banner';
 import men from '../../../images/banner/men.jpg'
 import ShowReview from '../ShowReview/ShowReview';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     
