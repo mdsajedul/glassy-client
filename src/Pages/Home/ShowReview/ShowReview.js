@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react';
 
 const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     
 
     useEffect(() => {
+        setIsLoading(true);
         fetch('https://pure-anchorage-09038.herokuapp.com/reviews')
         .then(res => res.json())
         .then(data => {setReviews(data)
-                console.log(reviews) })                        
+                setIsLoading(false);     })                        
     },[])
 
     return (
@@ -20,6 +22,14 @@ const ShowReview = () => {
             </div>
 
             <div>
+            {
+                isLoading && 
+                <div class="text-center">
+                <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+                </div>
+                </div>
+            }
                 <div className="row gx-0">
                     {
                         reviews.map(review => {

@@ -59,7 +59,7 @@ const MyOrder = () => {
                        
                             <td>{order?.glassName}</td>
                             <td style={order?.OrderStatus==='Pending'? {color:'#F48225',fontWeight:'bold'}:{color:'green',fontWeight:'bold'}}>{order?.OrderStatus}</td>
-                            <td><button className="order-delete" onClick={()=>deleteHandler(order._id,order?.glassName)}><i class=" fas fa-trash-alt"></i></button></td> 
+                            <td><button className="order-delete" onClick={()=>deleteHandler(order._id,order?.glassName)}><i className=" fas fa-trash-alt"></i></button></td> 
                         </tr>)
                 }
             </tbody>

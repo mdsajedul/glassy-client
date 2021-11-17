@@ -15,7 +15,6 @@ const ManageAllOrders = () => {
             fetch(`https://pure-anchorage-09038.herokuapp.com/orders`)
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
                 setManageAllOrders(data);
                 setCount(data.length);
                 setIsLoading(false);
@@ -93,8 +92,8 @@ const ManageAllOrders = () => {
                          <td>{order?.glassName}</td>
                         <td>{order?.email}</td>
                          <td style={order?.OrderStatus==='Pending'? {color:'#F48225',fontWeight:'bold'}:{color:'#335C39',fontWeight:'bold'}}>{order?.OrderStatus}</td>
-                         <td><button className="order-shipped" onClick={()=>shippedHandler(order._id,order?.glassName)}><i class="fas fa-truck"></i></button></td> 
-                         <td><button className="order-delete" onClick={()=>deleteHandler(order._id,order?.glassName)}><i class=" fas fa-trash-alt"></i></button></td> 
+                         <td><button className="order-shipped" onClick={()=>shippedHandler(order._id,order?.glassName)}><i className="fas fa-truck"></i></button></td> 
+                         <td><button className="order-delete" onClick={()=>deleteHandler(order._id,order?.glassName)}><i className=" fas fa-trash-alt"></i></button></td> 
                      </tr>)
              }
          </tbody>

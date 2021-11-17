@@ -11,7 +11,7 @@ const Navigation = () => {
     
     return (
         <>
-            <Navbar sticky="top" className="nav-custom" collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar sticky="top" style={{backgroundColor:'#F2F2F2',boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} className="nav-custom" collapseOnSelect expand="lg"  variant="light">
                 <Container>
                 <Navbar.Brand href="/home"><img
                                                 src={logo}
@@ -37,7 +37,7 @@ const Navigation = () => {
                              
                             }
                             {user?.email ?
-                                <button className="btn-logout" style={{border:'none',color:'red', backgroundColor:'#F8F9FA'}} onClick={logout} variant="light">Logout</button> :
+                                <button className="btn-logout" style={{border:'none',color:'red', backgroundColor:'#F2F2F2'}} onClick={logout} variant="light">Logout</button> :
                                 <Nav.Link as={Link} to="/login">Login</Nav.Link>}
                         </Nav>
                     </Navbar.Collapse>

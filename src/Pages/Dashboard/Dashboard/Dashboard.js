@@ -20,7 +20,6 @@ import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     const {user,logout,admin} = useAuth();
-    console.log(path)
     return (
         <div>
             <div className="row gx-0">

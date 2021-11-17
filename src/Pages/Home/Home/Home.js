@@ -9,7 +9,7 @@ import Banner from '../Banner/Banner';
 
 const Home = () => {
     
-    const {glasses} = useGlasses()
+    const {glasses,isLoading} = useGlasses()
    
     return (
         <div>
@@ -22,6 +22,14 @@ const Home = () => {
            <div className="row gx-0">
                 <div className="col-lg-9">
                 <div className="row  gx-0">
+                    {
+                    isLoading && 
+                    <div class="text-center">
+                    <div class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    </div>
+                    }
                     {
                     glasses.slice(0,6).map(glass=><Sunglass 
                                         key={glass._id}
@@ -40,6 +48,26 @@ const Home = () => {
            </div>
 
             <ShowReview></ShowReview>
+
+            <div className="our-service my-5 py-5" style={{backgroundColor:"#F4F4F4"}}>
+                    <div className="row gx-0" style={{color:'#445760'}}>
+                        <div className="col-lg-4 px-3">
+                            <i style={{fontSize:'50px'}} className="fas fa-truck my-3"></i>
+                            <h4 style={{fontWeight:"bold"}}>Free Delivery</h4>
+                            <p>We offer Free Delivery to inside Dhaka. </p>
+                        </div>
+                        <div className="col-lg-4 px-3">
+                            <i style={{fontSize:'50px'}} className="fas fa-headset my-3"></i>
+                            <h4 style={{fontWeight:"bold"}}>24/7 Customer Support</h4>
+                            <p>We have 24/7 customer support system. If you have any question, just reach out us in webmail, social media or call us </p>
+                        </div>
+                        <div className="col-lg-4 px-3">
+                            <i style={{fontSize:'50px'}} className="fas fa-shopping-bag my-3"></i>
+                            <h4 style={{fontWeight:"bold"}}>Return of Goods</h4>
+                            <p>We have Return of Goods system. If you found any issue in our product you can return. </p>
+                        </div>
+                    </div>
+            </div>
         </div>
     );
 };

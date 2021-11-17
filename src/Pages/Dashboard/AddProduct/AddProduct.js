@@ -18,7 +18,7 @@ const AddProduct = () => {
     return (
         <div>
             <div className="add-product p-3">
-                    
+                    <h3 className="my-3">Add a Product</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                             <div>
                                 <input type="text" {...register("name", { required: true })}  placeholder="Sunglass Name" />

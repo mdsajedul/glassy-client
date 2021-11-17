@@ -59,7 +59,7 @@ const ManageProducts = () => {
                     manageAllProducts.map(product=><tr>
                        
                             <td>{product?.name}</td>
-                            <td><button className="product-delete" onClick={()=>deleteHandler(product._id,product?.name)}><i class=" fas fa-trash-alt"></i></button></td> 
+                            <td><button className="product-delete" onClick={()=>deleteHandler(product._id,product?.name)}><i className=" fas fa-trash-alt"></i></button></td> 
                         </tr>)
                 }
             </tbody>
